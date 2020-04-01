@@ -1,0 +1,493 @@
+@import url(https://fonts.googleapis.com/css?family=Vollkorn|Roboto);
+@import url('https://fonts.googleapis.com/css?family=Inter:100,300,400,500,600,700,900|Poppins:300,400,500,600,700,800,900&display=swap');
+font-family: 'Poppins', sans-serif;
+font-family: 'Inter', sans-serif;
+body {
+  background: #F5F5F5;
+}
+
+
+
+.button_container {
+  position: relative;
+  top: 5%;
+  right: 2%;
+  height: 27px;
+  width: 35px;
+  cursor: pointer;
+  z-index: 100;
+  -webkit-transition: opacity .25s ease;
+  transition: opacity .25s ease;
+}
+.button_container:hover {
+  opacity: .7;
+}
+.button_container.active .top {
+  -webkit-transform: translateY(10px) translateX(0) rotate(45deg);
+          transform: translateY(10px) translateX(0) rotate(45deg);
+  background: #FFF;
+}
+.button_container.active .middle {
+  opacity: 0;
+  background: #FFF;
+}
+.button_container.active .bottom {
+  -webkit-transform: translateY(-10px) translateX(0) rotate(-45deg);
+          transform: translateY(-10px) translateX(0) rotate(-45deg);
+  background: #FFF;
+}
+.button_container span {
+  background: #FF5252;
+  border: none;
+  height: 4px;
+  width: 85%;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  -webkit-transition: all .35s ease;
+  transition: all .35s ease;
+  cursor: pointer;
+}
+.button_container span:nth-of-type(2) {
+  top: 10px;
+  width: 20px;
+}
+.button_container span:nth-of-type(3) {
+  top: 20px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  visibility: hidden;
+  -webkit-transition: opacity .35s, visibility .35s, width .35s;
+  transition: opacity .35s, visibility .35s, width .35s;
+  z-index: 50;
+}
+.overlay:before {
+  content: '';
+  background: #FF5252;
+  left: -55%;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  -webkit-transition: left .35s ease;
+  transition: left .35s ease;
+}
+.overlay:after {
+  content: '';
+  background: #FF5252;
+  right: -55%;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  -webkit-transition: all .35s ease;
+  transition: all .35s ease;
+}
+.overlay.open {
+  opacity: .9;
+  visibility: visible;
+  height: 100%;
+}
+.overlay.open:before {
+  left: 0;
+}
+.overlay.open:after {
+  right: 0;
+}
+.overlay.open li {
+  -webkit-animation: fadeInRight .5s ease forwards;
+          animation: fadeInRight .5s ease forwards;
+  -webkit-animation-delay: .35s;
+          animation-delay: .35s;
+}
+.overlay.open li:nth-of-type(2) {
+  -webkit-animation-delay: .45s;
+          animation-delay: .45s;
+}
+.overlay.open li:nth-of-type(3) {
+  -webkit-animation-delay: .55s;
+          animation-delay: .55s;
+}
+.overlay.open li:nth-of-type(4) {
+  -webkit-animation-delay: .65s;
+          animation-delay: .65s;
+}
+.overlay nav {
+  position: relative;
+  height: 70%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 50px;
+  font-family: 'Vollkorn', serif;
+  font-weight: 400;
+  text-align: center;
+  z-index: 100;
+}
+.overlay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  height: 100%;
+}
+.overlay ul li {
+  display: block;
+  height: 25%;
+  height: calc(100% / 4);
+  min-height: 50px;
+  position: relative;
+  opacity: 0;
+}
+.overlay ul li a {
+  display: block;
+  position: relative;
+  color: #FFF;
+  text-decoration: none;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+.overlay ul li a:hover:after, .overlay ul li a:focus:after, .overlay ul li a:active:after {
+  width: 100%;
+}
+.overlay ul li a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  height: 3px;
+  background: #FFF;
+  -webkit-transition: .35s;
+  transition: .35s;
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+ .searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    /*background-color: #353b48;*/
+
+    border-radius: 30px;
+    padding: 10px;
+    position: relative;
+
+
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f27575+1,b46070+100 */
+background: #f27575; /* Old browsers */
+background: -moz-linear-gradient(top,  #f27575 1%, #b46070 100%); /* FF3.6-15 */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#f27575), color-stop(100%,#b46070)); /* Chrome4-9,Safari4-5 */
+background: -webkit-linear-gradient(top,  #f27575 1%,#b46070 100%); /* Chrome10-25,Safari5.1-6 */
+background: -o-linear-gradient(top,  #f27575 1%,#b46070 100%); /* Opera 11.10-11.50 */
+background: -ms-linear-gradient(top,  #f27575 1%,#b46070 100%); /* IE10 preview */
+background: linear-gradient(to bottom,  #f27575 1%,#b46070 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f27575', endColorstr='#b46070',GradientType=0 ); /* IE6-9 */
+
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 300px;
+    caret-color:red;
+    transition: width 0.4s linear;
+
+    }
+    ::placeholder{
+      color: white;
+    }
+    .searchbar:hover > .search_icon{
+    background: white;
+    color: #e74c3c;
+    text-decoration: none;
+    }
+
+   .search_icon {
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+header {
+    
+    position: relative;
+    padding-top: 35px;
+}
+
+.vh-800{min-height: 800px;
+
+}
+.banner-content{}
+
+.banner-content h1 {
+    color: #3c3768;
+    font-size: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.banner-content p {
+    color: #455a64;
+    font-size: 17px;
+    font-family: 'Inter', sans-serif;
+    margin-top: 20px;
+    font-weight: 500;
+    line-height: 1.8;
+
+}
+.banner-content h6 {
+    font-size: 19px;
+    font-family: 'Inter', sans-serif;
+    color: #455a64;
+    padding-top: 55px;
+    padding-bottom: 20px;
+}
+
+.form-inline input {
+    border: 1px solid #80bdff00;
+    box-shadow: 0px 24px 20px 0 #5a44440d;
+    padding: 30px 77px;
+
+}
+
+
+.form-inline button {
+      color: #ffffffe6;
+    padding: 16px 41px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0px 24px 20px 0 #5a44440d;
+    transition-duration: 0.4s;
+
+   
+}
+.btn-custom{
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b46070+0,f27575+99 */
+background: #b46070; /* Old browsers */
+background: -moz-linear-gradient(left,  #b46070 0%, #f27575 99%); /* FF3.6-15 */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#b46070), color-stop(99%,#f27575)); /* Chrome4-9,Safari4-5 */
+background: -webkit-linear-gradient(left,  #b46070 0%,#f27575 99%); /* Chrome10-25,Safari5.1-6 */
+background: -o-linear-gradient(left,  #b46070 0%,#f27575 99%); /* Opera 11.10-11.50 */
+background: -ms-linear-gradient(left,  #b46070 0%,#f27575 99%); /* IE10 preview */
+background: linear-gradient(to right,  #b46070 0%,#f27575 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b46070', endColorstr='#f27575',GradientType=1 ); /* IE6-9 */
+color:white;
+transition-duration:0.4s;
+}
+.btn-custom:hover{
+    color: #ffffffe0;
+    border: 1px solid #80bdff00;
+    background: #3c3768;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #f27575d9;
+    outline: 0;
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.25);
+
+}
+
+.banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo{}
+
+.service-section{
+    position: relative;
+    padding: 150px 0;
+}
+.service-section img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.service1 img {
+    left: 0;
+}
+.service {
+    padding: 50px;
+    background: #ffffff7d;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 24px 20px 0 #00000008;
+    border-radius: 4px;
+}
+.service h2 {
+    color: #3c3768;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+   font-family: 'Poppins', sans-serif;
+}
+.service p {
+    color: #455a64;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    line-height: 2;
+}
+.service a {
+    color: #fa7875;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+
+  }
+
+.service a:hover{
+
+}
+
+.service span {}
+.service span i {}
+
+
+.service2 img {
+    right: 0;
+}
+.service3 img {
+    left: 0;
+}
+
+.subscribe-section {
+    padding: 50px 0 50px;
+}
+.subscribe-section .container{
+background-image: url(../images/footer.png);
+
+}
+
+.subscribe-section .row {
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.subscribe-section h1 {
+    font-size: 40px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.subscribe-section p {
+    color: #c5cae9;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+}
+
+footer {
+    position: relative;
+    margin-top: 50px;
+}
+footer > img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+footer a img{}
+footer p{
+    color: #455a64;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    margin: 40px 0;
+}
+.footer-menu li {}
+.footer-menu li a{
+    font-size: 16px;
+    color: #455a64;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+    display: block;
+}
+.footer-menu li a:hover {
+    color: #fa7875;
+    text-decoration: none;
+}
+.social-list {}
+.social-list li{}
+.social-list li a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: #322e57;
+    color: white;
+    border-radius: 50%;
+    line-height: 50px;
+    text-align: center;
+    margin-right: 16px;
+    transition-duration: 0.2s;
+}
+.social-list li a:hover{
+  background: #fa7875;
+}
+.copyright {
+    font-size: 16px;
+
+}
+.img-fluid{}
+
+
+@media (min-width: 1200px){
+.container, .container-sm, .container-md, .container-lg, .container-xl {
+    max-width: 1410px;
+}
+
